@@ -17,6 +17,10 @@ export async function launchTelegramMailing() {
 
     await page.setViewport({ width: 1920, height: 1080 });
 
+    if (process.env.TIME_TO_SLEEP !== "0") {
+        await sleep(+process.env.TIME_TO_SLEEP);
+    }
+
     await page.locator("#column-left > div > div > div.sidebar-header.can-have-forum > div.input-search").click().catch(err => console.error(err.message));
     await sleep(2);
     await page.locator("#column-left > div > div > div.sidebar-header.can-have-forum > div.input-search > input").fill("+79295642508").catch(err => console.error(err.message));

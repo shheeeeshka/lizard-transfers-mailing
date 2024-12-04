@@ -17,6 +17,10 @@ export async function launchWhatsappMailing() {
 
     await page.setViewport({ width: 1920, height: 1080 });
 
+    if (process.env.TIME_TO_SLEEP !== "0") {
+        await sleep(+process.env.TIME_TO_SLEEP);
+    }
+
     await page.locator("#app > div > div.two._aigs.x1n2onr6.x13vifvy.x17qophe.x78zum5.xh8yej3.x5yr21d.x6ikm8r.x10wlt62.x1iek97a.x1w3jsh0.xf8xn22.x168nmei.x13lgxp2.x5pf9jr.xo71vjh.x1g0ag68.xcgwb2z.x4afe7t.x1alahoq.x1j6awrg.x1m1drc7.x1n449xj.x162n7g1.xitxdhh.x134s4mn.x1s928wv.x1setqd9 > div._aigw.x9f619.x1n2onr6.x5yr21d.x17dzmu4.x1i1dayz.x2ipvbc.x1w8yi2h.x78zum5.xdt5ytf.xa1v5g2.x1plvlek.xryxfnj.xd32934 > header > header > div > span > div > span > div:nth-child(1) > div > span").click().catch(err => console.error(err.message));
     await sleep(3);
     await page.locator("#app > div > div.two._aigs.x1n2onr6.x13vifvy.x17qophe.x78zum5.xh8yej3.x5yr21d.x6ikm8r.x10wlt62.x1iek97a.x1w3jsh0.xf8xn22.x168nmei.x13lgxp2.x5pf9jr.xo71vjh.x1g0ag68.xcgwb2z.x4afe7t.x1alahoq.x1j6awrg.x1m1drc7.x1n449xj.x162n7g1.xitxdhh.x134s4mn.x1s928wv.x1setqd9 > div.x10l6tqk.x13vifvy.x17qophe.x78zum5.xh8yej3.x5yr21d.x6ikm8r.x10wlt62.x47corl > div._aigw.false.xxpasqj.x9f619.x1n2onr6.x5yr21d.x17dzmu4.x1i1dayz.x2ipvbc.x1w8yi2h.x78zum5.xdt5ytf.xd32934.x6ikm8r.x10wlt62.x1ks9yow > span > div > span > div > div._ai01._akmh > div._ai04 > div.x9f619.x78zum5.x6s0dn4.x1s1d1n7.xqmdsaz.x1lj6vcq.x1bmedo.x1lq5wgf.xgqcy7u.x30kzoy.x9jhf4c > div > div > p").fill("+79295642508").catch(err => console.error(err.message));
