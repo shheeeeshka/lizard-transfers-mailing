@@ -4,7 +4,8 @@ import { config } from "dotenv";
 
 config();
 
-export async function launchTelegramMailing() {
+export async function launchTelegramMailing(phoneNumber = "") {
+    if (!phoneNumber) throw new Error("Phone number is not defined");
     const browser = await puppeteer.launch({
         headless: process.env.SHOW_BROWSER === "1" ? false : true,
         defaultViewport: false,
@@ -21,9 +22,12 @@ export async function launchTelegramMailing() {
         await sleep(+process.env.TIME_TO_SLEEP);
     }
 
-    await page.locator("#column-left > div > div > div.sidebar-header.can-have-forum > div.input-search").click().catch(err => console.error(err.message));
     await sleep(2);
-    await page.locator("#column-left > div > div > div.sidebar-header.can-have-forum > div.input-search > input").fill("+79295642508").catch(err => console.error(err.message));
+    await page.locator("#column-left > div > div > div.sidebar-header.can-have-forum > div.input-search").click().catch(err => console.error(err.message));
+    await sleep(1.2);
+    await page.locator("#column-left > div > div > div.sidebar-header.can-have-forum > div.input-search > input").fill(phoneNumber).catch(err => console.error(err.message));
+    await sleep(3);
+    await page.locator("#search-container > div.scrollable.scrollable-y > div.search-super > div > div.search-super-tab-container.search-super-container-chats.tabs-tab.active > div > div:nth-child(1) > ul > a").click().catch(err => console.error(err.message));
     await sleep(2);
     await page.locator(".input-message-input").fill(process.env.MESSAGE || "message").catch(err => console.error(err.message));
     await sleep(2.7);

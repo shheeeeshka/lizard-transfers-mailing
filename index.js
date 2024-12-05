@@ -19,9 +19,9 @@ app.post("/send-notification", async (req, res) => {
         if (!phoneNumber || !messenger) return res.status(400).send({ error: "Missing required field" });
 
         if (messenger === "whatsapp") {
-            await launchWhatsappMailing();
+            await launchWhatsappMailing(phoneNumber);
         } else if (messenger === "telegram") {
-            await launchTelegramMailing();
+            await launchTelegramMailing(phoneNumber);
         }
 
         return res.send("Message sent successfully");
