@@ -31,6 +31,14 @@ app.post("/send-notification", async (req, res) => {
     }
 });
 
+app.get("/keep-alive", async (req, res) => {
+    try {
+        return res.send("Alive");
+    } catch (err) {
+        console.error(err);
+    }
+});
+
 const launch = async () => {
     try {
         app.listen(PORT, () => console.log(`Server is currently running on port: ${PORT}`));
