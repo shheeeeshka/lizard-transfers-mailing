@@ -10,7 +10,7 @@ export async function launchTelegramMailing(phoneNumber = "") {
         headless: process.env.SHOW_BROWSER === "1" ? false : true,
         defaultViewport: false,
         userDataDir: "./tmp",
-        executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        // executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
     });
     const page = await browser.newPage();
 
