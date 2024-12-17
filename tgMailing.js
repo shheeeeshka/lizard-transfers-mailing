@@ -16,7 +16,7 @@ export async function launchTelegramMailing(phoneNumber = "") {
             '--window-size=1920,1080',
             '--user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3312.0 Safari/537.36"'
         ],
-        // executablePath: "/usr/bin/google-chrome",
+        executablePath: "/root/.cache/puppeteer/chrome/linux-131.0.6778.85/chrome-linux64/chrome",
     });
     const page = await browser.newPage();
 
