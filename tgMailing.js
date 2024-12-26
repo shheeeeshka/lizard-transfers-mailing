@@ -13,7 +13,6 @@ export async function launchTelegramMailing(phoneNumber = "") {
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
-            '--window-size=1920,1080',
             '--user-agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3312.0 Safari/537.36"'
         ],
         executablePath: "/usr/bin/google-chrome",
